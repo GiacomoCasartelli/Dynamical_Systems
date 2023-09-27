@@ -37,8 +37,8 @@ v = (sol(1,:)-b(1)).^2+(sol(2,:)-b(2)).^2;
 [l,index_b] = min(v);
 index_b = max(index_b);
 [index_a,index_b]
-del = 0.01;
-epp = 0.005;
+del = 0.03;
+epp = 0.01;
 loop_length = 12;
 %[final,final_index] = min(abs(sol.x-sol.x(find(sol.y==b))-loop_length));
 
