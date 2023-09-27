@@ -28,7 +28,7 @@ tspan = [0,endtime];
 tempi = readmatrix('TempiPoincare.txt');
 sol = table2array(readtable("SezionePoincare.txt"))';
 scatter(sol(1,:),sol(2,:),'.','k')
-a = [0.14,0];
+a = [x0,0.2];
 b = [1,0];
 v = (sol(1,:)-a(1)).^2+(sol(2,:)-a(2)).^2;
 [l,index_a] = min(v);
@@ -38,7 +38,7 @@ v = (sol(1,:)-b(1)).^2+(sol(2,:)-b(2)).^2;
 index_b = max(index_b);
 [index_a,index_b]
 del = 0.01;
-epp = 0.0005;
+epp = 0.005;
 loop_length = 12;
 %[final,final_index] = min(abs(sol.x-sol.x(find(sol.y==b))-loop_length));
 
