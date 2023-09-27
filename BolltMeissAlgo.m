@@ -8,9 +8,11 @@ l = length(sol);
 check = false;
 k2 = length(array);
 Booleanoss=true;
+del0 = del;
 for k=1+loop_length:k2-loop_length 
     %fprintf("\nStart of loop number %d of %d",k-k1+1-loop_length,k2-k1-2*loop_length+1)
     for j=k2-loop_length:-1:k+loop_length %we want to find zj with del-recurrence
+        del = 2*del0*(j-k)/(3*(k2-1))+del0/3;
         %fprintf("\n%2.2f%%",(1-(j-k)/(l-k))*100)
         if (norm(array(:,j)-array(:,k))<del) %check for recurrence
             %we search for a patch
@@ -55,6 +57,7 @@ for k=1+loop_length:k2-loop_length
 end
 
 if check
+    del = del0;
     [f,times] = BolltMeissAlgo(f,del,epp,loop_length,index_a,index_b,tempi,sol);
 else
     f=array;
